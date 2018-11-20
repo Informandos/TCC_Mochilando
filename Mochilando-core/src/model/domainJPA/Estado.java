@@ -15,7 +15,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="estado", schema="public")
-public class EstadoJPA implements Serializable{
+public class Estado implements Serializable{
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long codEstado;

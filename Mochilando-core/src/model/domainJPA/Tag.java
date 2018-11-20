@@ -15,7 +15,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="tag")
-public class TagJPA implements Serializable{
+public class Tag implements Serializable{
     
     @Id
     @GeneratedValue (strategy=GenerationType.IDENTITY)

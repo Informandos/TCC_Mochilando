@@ -1,15 +1,15 @@
 package model.domainJPA;
 
 import java.io.Serializable;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import model.domain.Tag;
-import model.domain.Usuario;
 
 /**
  *
@@ -17,34 +17,33 @@ import model.domain.Usuario;
  */
 
 @Entity
-@Table(name="usuario_tag", schema="public")
-public class UsuarioTagJPA implements Serializable{
+@Table(name="tag_diario", schema="public")
+public class TagDiario implements Serializable{
     
     @Id
     @GeneratedValue (strategy=GenerationType.IDENTITY)
-    private Long seqUsuarioTag;
+    private Long seqTagDiario;
     
-    @ManyToOne
-    @JoinColumn(name = "cod_usuario")
-    private Usuario usuario;
-    @ManyToOne
+    @Column(name = "tag_diario")
+    private Long tagDiario;
+    @OneToMany
     @JoinColumn(name = "cod_tag")
     private Tag tag;
 
-    public Long getSeqUsuarioTag() {
-        return seqUsuarioTag;
+    public Long getSeqTagDiario() {
+        return seqTagDiario;
     }
 
-    public void setSeqUsuarioTag(Long seqUsuarioTag) {
-        this.seqUsuarioTag = seqUsuarioTag;
+    public void setSeqTagDiario(Long seqTagDiario) {
+        this.seqTagDiario = seqTagDiario;
     }
 
-    public Usuario getUsuario() {
-        return usuario;
+    public Long getTagDiario() {
+        return tagDiario;
     }
 
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
+    public void setTagDiario(Long tagDiario) {
+        this.tagDiario = tagDiario;
     }
 
     public Tag getTag() {
@@ -54,5 +53,5 @@ public class UsuarioTagJPA implements Serializable{
     public void setTag(Tag tag) {
         this.tag = tag;
     }
-    
+
 }

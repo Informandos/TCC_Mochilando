@@ -15,7 +15,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="tipo_atracao", schema="public")
-public class TipoAtracaoJPA implements Serializable{
+public class TipoAtracao implements Serializable{
     
     @Id
     @GeneratedValue (strategy=GenerationType.IDENTITY)

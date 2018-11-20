@@ -18,7 +18,7 @@ import model.domain.Dia;
 
 @Entity
 @Table(name="foto", schema="public")
-public class FotoJPA implements Serializable{
+public class Foto implements Serializable{
     
     @Id
     @GeneratedValue (strategy=GenerationType.IDENTITY)

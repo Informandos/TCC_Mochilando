@@ -20,7 +20,7 @@ import model.domain.Cidade;
 
 @Entity
 @Table(name="usuario", schema="public")
-public class UsuarioJPA implements Serializable{
+public class Usuario implements Serializable{
     
     @Id
     @GeneratedValue (strategy=GenerationType.IDENTITY)
