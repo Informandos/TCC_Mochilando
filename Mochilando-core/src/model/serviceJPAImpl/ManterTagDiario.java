@@ -2,7 +2,7 @@ package model.serviceJPAImpl;
 
 import java.util.List;
 import javax.persistence.EntityManager;
-import model.dao.interfaces.InterfaceTagDiarioDAO;
+import javax.persistence.Query;
 import model.domain.TagDiario;
 import model.service.interfaces.InterfaceManterTagDiario;
 import util.db.exception.ExcecaoConexaoCliente;
@@ -13,9 +13,8 @@ import util.db.exception.ExcecaoPersistencia;
  *
  * @author lucca
  */
-public class MaterTagDiario implements InterfaceManterTagDiario {
+public class ManterTagDiario implements InterfaceManterTagDiario {
     
-    protected InterfaceTagDiarioDAO tagDiarioDAO;
     protected EntityManager em;
     
     @Override
@@ -56,27 +55,37 @@ public class MaterTagDiario implements InterfaceManterTagDiario {
 
     @Override
     public boolean excluir(TagDiario tagDiario) throws ExcecaoPersistencia, ExcecaoNegocio, ExcecaoConexaoCliente {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if(tagDiario != null){
+            em.remove(tagDiario);
+        }
+        return true;
     }
 
     @Override
     public TagDiario pesquisarPorId(Long seqTagDiario) throws ExcecaoPersistencia, ExcecaoConexaoCliente {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return em.find(TagDiario.class, seqTagDiario);
     }
 
     @Override
     public List<TagDiario> pesquisarTodos() throws ExcecaoPersistencia, ExcecaoConexaoCliente {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Query query = em.createQuery("SELECT * FROM tag_diario ORDER BY nom_estado");
+        List<TagDiario> result = query.getResultList();
+        return result;
     }
 
     @Override
     public List<TagDiario> pesquisarPorCodDiario(Long codDiario) throws ExcecaoPersistencia, ExcecaoConexaoCliente {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Query query = em.createQuery("SELECT * FROM tag_diario WHERE cod_diario = "+codDiario);
+        List<TagDiario> result = query.getResultList();
+        return result;
     }
 
     @Override
     public List<TagDiario> pesquisarPorCodTag(Long codTag) throws ExcecaoPersistencia, ExcecaoConexaoCliente {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        /*Tá errado, não sei como fazer*/
+        Query query = em.createQuery("SELECT * FROM tag_diario WHERE cod_tag = "+codTag);
+        List<TagDiario> result = query.getResultList();
+        return result;
     }
     
 }

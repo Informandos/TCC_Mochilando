@@ -16,7 +16,6 @@ import util.db.exception.ExcecaoPersistencia;
  */
 public class ManterTag implements InterfaceTagDAO{
 
-    protected InterfaceTagDAO tagDAO;
     protected EntityManager em;
 
     public ManterTag(EntityManager em) {
@@ -81,7 +80,9 @@ public class ManterTag implements InterfaceTagDAO{
 
     @Override
     public Tag consultarPorNome(String descTag) throws ExcecaoPersistencia {
-        return em.find(Tag.class, descTag);
+        Query query = em.createQuery("SELECT * FROM tag WHERE desc_tag = "+descTag);
+        Tag result = (Tag) query.getSingleResult();
+        return result;
     }
 
     @Override

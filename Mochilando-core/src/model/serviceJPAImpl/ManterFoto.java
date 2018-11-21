@@ -3,7 +3,6 @@ package model.serviceJPAImpl;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
-import model.dao.interfaces.InterfaceFotoDAO;
 import model.domain.Foto;
 import model.service.interfaces.InterfaceManterFoto;
 import util.db.exception.ExcecaoConexaoCliente;
@@ -16,7 +15,6 @@ import util.db.exception.ExcecaoPersistencia;
  */
 public class ManterFoto implements InterfaceManterFoto {
 
-    protected InterfaceFotoDAO fotoDAO;
     protected EntityManager em;
 
     public ManterFoto(EntityManager em) {
@@ -36,8 +34,8 @@ public class ManterFoto implements InterfaceManterFoto {
         if (foto.getByteFoto() == null) {
             throw new ExcecaoNegocio("Obrigatório informar a foto");
         }
-        Long result = fotoDAO.inserir(foto);
-        return result;
+        em.persist(foto);
+        return foto.getSeqFoto();
     }
 
     @Override
@@ -83,9 +81,9 @@ public class ManterFoto implements InterfaceManterFoto {
 
     @Override
     public List<Foto> pesquisarPorDia(Long seqDia) throws ExcecaoPersistencia, ExcecaoConexaoCliente {
-        /*Query query = em.
-        List<Foto> result = query.getResultList();*/
-        return null /*result*/;
+        Query query = em.createQuery("SELECT * FROM foto WHERE seq_dia = "+ seqDia);
+        List<Foto> result = query.getResultList();
+        return result;
     }
 
 }

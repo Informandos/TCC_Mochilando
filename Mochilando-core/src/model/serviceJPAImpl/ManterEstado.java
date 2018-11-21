@@ -5,7 +5,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
-import model.dao.interfaces.InterfaceEstadoDAO;
 import model.domain.Estado;
 import model.service.interfaces.InterfaceManterEstado;
 import util.db.exception.ExcecaoConexaoCliente;
@@ -18,7 +17,6 @@ import util.db.exception.ExcecaoPersistencia;
  */
 public class ManterEstado implements InterfaceManterEstado{
     
-    protected InterfaceEstadoDAO estadoDAO;
     protected EntityManager em;
 
     public ManterEstado(EntityManager em) {
@@ -77,7 +75,9 @@ public class ManterEstado implements InterfaceManterEstado{
 
     @Override
     public Estado pesquisarPorSigla(String sigla) throws ExcecaoPersistencia, ExcecaoConexaoCliente {
-        return em.find(Estado.class, sigla);
+        Query query = em.createQuery("SELECT * FROM tag_diario WHERE sigla = "+sigla);
+        Estado result = (Estado) query.getSingleResult();
+        return result;
     }
 
     @Override
