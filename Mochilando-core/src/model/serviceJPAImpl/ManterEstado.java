@@ -41,8 +41,8 @@ public class ManterEstado implements InterfaceManterEstado{
             Logger.getLogger(ManterEstado.class.getName()).log(Level.SEVERE, null, ex);
         }
                   
-        Long result = estadoDAO.inserir(estado);
-        return result;
+        em.persist(estado);
+        return estado.getCodEstado();
     }
 
     @Override
@@ -51,10 +51,15 @@ public class ManterEstado implements InterfaceManterEstado{
             throw new ExcecaoNegocio("Obrigatório informar o nome do estado.");
         
         if((estado.getSigla() == null) || (estado.getSigla().isEmpty()))
-            throw new ExcecaoNegocio("Obrigatório informar a sigla.");
-                  
-        boolean result = estadoDAO.atualizar(estado);
-        return result;
+            throw new ExcecaoNegocio("Obrigatório informar a sigla.");          
+        
+        Estado estadoAux = pesquisarPorId(estado.getCodEstado());
+        if(estadoAux != null){
+            estadoAux.setCodEstado(estado.getCodEstado());
+            estadoAux.setNomEstado(estado.getNomEstado());
+            estadoAux.setSigla(estado.getSigla());
+        }
+        return true;
     }
 
     @Override
