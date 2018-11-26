@@ -1,43 +1,48 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:p="http://primefaces.org/ui"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
-    <div align="center">
-        <h:form>            
-            <p:outputLabel>
-                <p:graphicImage url="img/mochila.png" />
-            </p:outputLabel>
-            <br/>
-            <br/>
-            <p:dialog widgetVar="dlg" resizable="false">
+<ui:decorate 
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:f="http://xmlns.jcp.org/jsf/core"
+    template="template.xhtml">
+    <ui:define name="corpo">
+        <div align="center">
+            <h:form>            
+                <br/>
+                <br/>
                 <h1>Login</h1>
-                <h:panelGrid columns="2" cellpadding="5">
-                    <h:outputLabel for="username" value="Usuario:" />
-                    <p:inputText id="email" value="#{loginMB.usuario}" required="true" label="email" />
-                    <h:outputLabel for="password" value="Senha:" />
-                    <p:password id="password" value="#{loginMB.senha}" required="true" label="password" />
-                    <h:outputLink value="recuperacaoSenha.jsf">
-                        <h:outputLabel value="Esqueceu a senha?"/>
-                    </h:outputLink>
-                    <div style="align-self: center">
-                        <p:commandButton value="Fazer Login"/>
-                    </div>
-                </h:panelGrid>
-            </p:dialog>
-            <br/>
-            <p:outputLabel value="Novo no mochilando?"/>
-            <br/>
-            <h:outputLink value="Cadastro.jsf">
-                <h:outputLabel value="Cadastro"/>
-            </h:outputLink>
-            <br/>
-            <br/>
-            <br/>
-            <h:outputLink value="desenvolvedores.jsf">
-                <h:outputLabel value="Desenvolvedores"/>
-            </h:outputLink>
-        </h:form>
-    </div>
-</html>
+                <br/>
+                <h:outputLabel for="usuario" value="Usuario: " />
+                <p:inputText id="usuario" value="#{loginMB.usuario}" required="true" label="email" />
+                <br/>
+                <br/>
+                <h:outputLabel for="password" value="Senha: " />
+                <p:password id="password" value="#{loginMB.senha}" required="true" label="password" />
+                <br/>
+                <h:outputLink value="recuperacaoSenha.jsf">
+                    <h:outputLabel value="Esqueceu a senha?"/>
+                </h:outputLink>
+                <br/>
+                <br/>
+                <div style="align-self: center">
+                    <p:commandButton value="Fazer Login"/>
+                </div>
+                <br/>
+                <br/>
+                <p:outputLabel value="Novo no mochilando?"/>
+                <br/>
+                <h:outputLink value="Cadastro.jsf">
+                    <h:outputLabel value="Cadastro"/>
+                </h:outputLink>
+                <br/>
+                <br/>
+                <br/>
+                <h:outputLink value="desenvolvedores.jsf">
+                    <h:outputLabel value="Desenvolvedores"/>
+                </h:outputLink>
+            </h:form>
+        </div>
+    </ui:define>        
+</ui:decorate>

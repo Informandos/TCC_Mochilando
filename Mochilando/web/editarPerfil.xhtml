@@ -1,0 +1,49 @@
+<ui:decorate 
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:f="http://xmlns.jcp.org/jsf/core"
+    template="template.xhtml">
+    <ui:define name="corpo">
+        <div align="center">
+            <h1>Editar Perfil</h1>
+        </div>
+        <br/>
+        <br/>
+        <h:form>
+            <h:outputText value="Nome: " />
+            <p:inputText value="#{editarPerfilMB.nomUsuario}" required="true"/>
+            <br/>
+            <br/>
+            <h:outputText value="Sobrenome: " />
+            <p:inputText value="#{editarPerfilMB.sobrenomeUsuario}" required="true"/>
+            <br/>
+            <br/>
+            <p:outputLabel for="data" value="Data de Nascimento: " />
+            <p:calendar id="data" value="#{editarPerfilMB.datNascimento}"/>
+            <br/>
+            <br/>
+            <p:outputLabel value="Foto de Perfil: "/>
+            <p:fileUpload value="#{editarPerfilMB.imgPerfil}" mode="simple" />
+            <br/>
+            <br/>
+            <p:outputLabel for="sexo" value="Sexo:" />
+            <p:selectOneRadio id="sexo" value="#{editarPerfilMB.sexo}">
+                <f:selectItem itemLabel="Masculino" itemValue="M" />
+                <f:selectItem itemLabel="Feminino" itemValue="F" />
+                <f:selectItem itemLabel="Outro" itemValue="O" />
+            </p:selectOneRadio>
+            <br/>
+            <br/>
+            <h:outputText value="Cidade: " />
+            <p:inputText value="#{editarPerfilMB.cidade}" />
+            <br/>
+            <br/>
+            <div align="center">
+                <p:commandButton value="Salvar"/>
+            </div>
+        </h:form>
+
+    </ui:define>
+</ui:decorate>
