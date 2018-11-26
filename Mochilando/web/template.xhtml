@@ -10,17 +10,6 @@
     </h:head>
     <h:body>
         <h:form>
-            <!--<div align="left" style="display: inline">
-                <p:commandButton id="pgIn" style="display: none" action="index.jsf"/>
-                <p:outputLabel for="pgIn">
-                    <h:graphicImage  width="50" height="50" url="img/mochila.png"/>
-                </p:outputLabel> 
-            </div>
-            <div align="right" style="display: inline">
-                <p:commandButton icon="ui-icon-person" style="width: 42px ; height: 42px" action="perfil.jsf"/>
-                <p:commandButton icon="ui-icon-plus" style="width: 42px ; height: 42px" action="CriarDiario.jsf"/>
-                <p:commandButton icon="ui-icon-help" style="width: 42px ; height: 42px" action="ajuda.jsf"/>
-            </div>-->
             <p:tabMenu activeIndex="#{param.i}">
                 <p:menuitem value="Página Inicial" outcome="index.jsf" icon="ui-icon-home">
                     <f:param name="i" value="0" />
