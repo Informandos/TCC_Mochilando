@@ -23,6 +23,63 @@
 
                     <h:outputLabel value="Senha:" />
                     <h:inputSecret value="#{loginMB.senha}" required="true"/>
+                    <br/>
+                    <h:outputLink value="recuperacaoSenha.jsf">	
+                        <h:outputLabel value="Recuperar Senha"/>	
+                    </h:outputLink>
+                    
+                    <br/>
+
+                    <div style="align-self: center">	
+                        <h:commandButton value="Logar"  action="#{loginMB.logar()}"/>
+                    </div>
+
+
+
+
+                    <p:outputLabel value="Novo no mochilando?"/>	
+
+                    <br/>	
+                    <h:outputLink value="Cadastro.jsf">	
+                        <h:outputLabel value="Cadastro"/>	
+                    </h:outputLink>
+                     <br/>
+                    <h:outputLink value="desenvolvedores.jsf">	
+                        <h:outputLabel value="Desenvolvedores"/>	
+                    </h:outputLink>
+
+                </h:panelGrid>
+                <h:messages />    
+            </h:form>
+        </div>
+
+    </ui:define>
+</ui:decorate>
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<ui:decorate 
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:f="http://xmlns.jcp.org/jsf/core"
+    template="template.xhtml">
+    <ui:define name="corpo">
+        <div align="center">
+            <h:form>
+                <br/>
+                <br/>
+                <h1>Login</h1>
+                <br/>
+                <h:panelGrid columns="2"> 
+                    <h:outputLabel for="loginMB" value="Email:"  />
+                    <h:inputText id="usuario" value="#{loginMB.email}" required="true"/>
+                    
+                    
+
+                    <h:outputLabel value="Senha:" />
+                    <h:inputSecret value="#{loginMB.senha}" required="true"/>
                     
                     
                     <br/>

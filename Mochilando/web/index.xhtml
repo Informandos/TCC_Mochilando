@@ -8,21 +8,20 @@
     xmlns:f="http://xmlns.jcp.org/jsf/core"
     template="template.xhtml">
     <ui:define name="corpo">
-        <div align="center">
+        <h:form>
+            <div align="center">
             <br/>
             <p:outputLabel>
                 <p:graphicImage url="img/mochila.png" />
             </p:outputLabel>
             <br/>
             <br/>
-            <h:outputLink value="Login.jsf">
-                <h:outputLabel value="Login"/>
-            </h:outputLink>
+            <p:commandButton value="Login" action="Login.jsf"/>
             <br/>
             <br/>
-            <h:outputLink value="Cadastro.jsf">
-                <h:outputLabel value="Cadastro"/>
-            </h:outputLink>
+            <p:commandButton value="Cadastro" action="Cadastro.jsf"/>
+                
         </div>
+        </h:form>
     </ui:define>
 </ui:decorate>
