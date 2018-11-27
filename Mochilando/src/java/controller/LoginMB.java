@@ -17,7 +17,7 @@ public class LoginMB {
      */
     public String logar(){
         if(email.equals("admin") && senha.equals("admin")){
-            return "pag-sucesso.jsf";
+            return "indexLogado.jsf";
         }
         FacesContext ctx = FacesContext.getCurrentInstance();
         FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Usuário inválido", "Usuário inválido");

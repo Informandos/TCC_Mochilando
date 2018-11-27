@@ -11,14 +11,40 @@
     <ui:define name="corpo">
         <div align="center">
             <h:form>
+                <br/>
+                <br/>
+                <h1>Login</h1>
+                <br/>
                 <h:panelGrid columns="2"> 
-                    <h:outputLabel value="Usuário:"  />
-                    <h:inputText  size="20" value="#{loginMB.email}" />
+                    <h:outputLabel for="loginMB" value="Email:"  />
+                    <h:inputText id="usuario" value="#{loginMB.email}" required="true"/>
+                    
+                    
 
                     <h:outputLabel value="Senha:" />
-                    <h:inputSecret  size="20" value="#{loginMB.senha}"/>
+                    <h:inputSecret value="#{loginMB.senha}" required="true"/>
+                    
+                    
+                    <br/>
 
-                    <h:commandButton value="Logar"  action="#{loginMB.logar()}"/>
+                    <div style="align-self: center">	
+                        <h:commandButton value="Logar"  action="#{loginMB.logar()}"/>
+                    </div>
+
+
+
+
+                    <p:outputLabel value="Novo no mochilando?"/>	
+
+                    <br/>	
+                    <h:outputLink value="Cadastro.jsf">	
+                        <h:outputLabel value="Cadastro"/>	
+                    </h:outputLink>
+                     <br/>
+                    <h:outputLink value="desenvolvedores.jsf">	
+                        <h:outputLabel value="Desenvolvedores"/>	
+                    </h:outputLink>
+
                 </h:panelGrid>
                 <h:messages />    
             </h:form>
