@@ -1,34 +1,44 @@
 package controller;
 
-import java.io.Serializable;
-import javax.inject.Named;
-import javax.enterprise.context.SessionScoped;
+import javax.faces.application.FacesMessage;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 
+@ManagedBean
 @SessionScoped
-@Named
-public class LoginMB implements Serializable{
+public class LoginMB {
+    private String email = "";
+    private String senha = "";
     
-    private String email;
-    private String senha;
-
-    public String getUsuario() {
-        return email;
+    /**
+     *
+     * @return
+     */
+    public String logar(){
+        if(email.equals("admin") && senha.equals("admin")){
+            return "pag-sucesso.jsf";
+        }
+        FacesContext ctx = FacesContext.getCurrentInstance();
+        FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Usuário inválido", "Usuário inválido");
+        ctx.addMessage(null, msg);
+        return "";              
     }
-
-    public void setUsuario(String usuario) {
-        this.email = usuario;
-    }
-
+    
+    
+    
     public String getSenha() {
         return senha;
     }
-
     public void setSenha(String senha) {
         this.senha = senha;
     }
-    
-    public String fowardToRecuperacaoSenha(){
-        return "recuperacaoSenha.jsf";
+
+    public String getEmail() {
+        return email;
     }
-    
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
 }
