@@ -11,13 +11,13 @@
     <h:body>
         <h:form>
             <p:tabMenu activeIndex="#{param.i}">
-                <p:menuitem value="Página Inicial" outcome="index.jsf" icon="ui-icon-home">
+                <p:menuitem value="Página Inicial" outcome="#{templateMB.fowardToIndex}" icon="ui-icon-home">
                     <f:param name="i" value="0" />
                 </p:menuitem>
-                <p:menuitem value="Criar Diário" outcome="CriarDiario.jsf" icon="ui-icon-plus">
+                <p:menuitem value="Criar Diário" outcome="#{templateMB.fowardToCrarDiaio}" icon="ui-icon-plus">
                     <f:param name="i" value="1" />
                 </p:menuitem>
-                <p:menuitem value="Perfil" outcome="perfil.jsf" icon="ui-icon-person">
+                <p:menuitem value="Perfil" outcome="#{templateMB.fowardToPerfil}" icon="ui-icon-person">
                     <f:param name="i" value="2" />
                 </p:menuitem>
                 <p:menuitem value="Ajuda" outcome="ajuda.jsf" icon="ui-icon-help">
